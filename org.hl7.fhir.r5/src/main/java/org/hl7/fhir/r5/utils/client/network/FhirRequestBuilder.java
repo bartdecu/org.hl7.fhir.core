@@ -264,6 +264,8 @@ public class FhirRequestBuilder {
           } else {
             throw new EFhirClientException("Error reading server response: a resource was returned instead");
           }
+        } else {
+          throw new EFhirClientException("Error reading server response, expected \"text/xml+fhir\" but received: \"" + contentType + "\"");
         }
       }
     } catch (IOException ioe) {
