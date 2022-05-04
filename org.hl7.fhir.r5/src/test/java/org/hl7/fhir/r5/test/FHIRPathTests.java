@@ -192,6 +192,7 @@ public class FHIRPathTests {
             } else {
               res = new XmlParser().parse(TestingUtilities.loadTestResourceStream("r5", input));
             }
+            res.setId(res.getIdPart() + "/_history/1");
             resources.put(input, res);
           }
           fp.check(res, res.getResourceType().toString(), res.getResourceType().toString(), node);
